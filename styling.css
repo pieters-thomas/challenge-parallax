@@ -1,0 +1,170 @@
+/** CSS variables **/
+:root {
+    --startleft: 0;
+    --targetleft: -2048px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+}
+
+.parallax {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+@keyframes moveSprite {
+    from{
+        transform: translate3d(0px,0,0);
+    }
+    to{
+        transform: translate3d(-100%,0,0);
+    }
+}
+
+@keyframes jumpAnimation {
+    0%{transform: translateY(0px);}
+    25%{transform: translateY(-65px)}
+    45%{transform: translateY(-105px);}
+    50%{transform: translateY(-110px);}
+    55%{transform: translateY(-105px);}
+    75%{transform: translateY(-65px)}
+}
+
+#sprite{
+    height: 140px;
+    width: 108px;
+
+    overflow: hidden;
+    position: absolute;
+    bottom: 190px;
+    left: calc(50vw - (108px/2));
+    z-index: 12;
+
+}
+
+.sprite_sheet{
+    animation: moveSprite 1s steps(8) infinite;
+
+}
+.jumping{
+    animation: jumpAnimation 2s steps(100);
+}
+
+@keyframes bg_animation {
+    from {
+        background-position-x: var(--startleft)
+    }
+    to {
+        background-position-x: var(--targetleft)
+    }
+}
+
+.img_01 {
+    background: url("img/parallax/01_ground.png");
+    background-size: contain;
+    z-index: 11;
+    animation: bg_animation 15s linear infinite;
+}
+
+.img_02 {
+    background: url("img/parallax/02_trees and bushes.png");
+    background-size: contain;
+    z-index: 10;
+    animation: bg_animation 20s linear infinite;
+}
+
+.img_03 {
+    background: url("img/parallax/03_distant_trees.png");
+    background-size: contain;
+    z-index: 9;
+    animation: bg_animation 35s linear infinite;
+}
+
+.img_04 {
+    background: url("img/parallax/04_bushes.png");
+    background-size: contain;
+    z-index: 8;
+    animation: bg_animation 40s linear infinite;
+}
+
+.img_05 {
+    background: url("img/parallax/05_hill1.png");
+    background-size: contain;
+    z-index: 7;
+    animation: bg_animation 50s linear infinite;
+}
+
+.img_06 {
+    background: url("img/parallax/06_hill2.png");
+    background-size: contain;
+    z-index: 6;
+    animation: bg_animation 55s linear infinite;
+}
+
+.img_07 {
+    background: url("img/parallax/07_huge_clouds.png");
+    background-size: contain;
+    z-index: 5;
+    animation: bg_animation 70s linear infinite;
+}
+
+.img_08 {
+    background: url("img/parallax/08_clouds.png");
+    background-size: contain;
+    z-index: 4;
+    animation: bg_animation 80s linear infinite;
+}
+
+.img_09 {
+    background: url("img/parallax/09_distant_clouds1.png");
+    background-size: contain;
+    z-index: 3;
+    animation: bg_animation 100s linear infinite;
+}
+
+.img_10 {
+    background: url("img/parallax/10_distant_clouds.png");
+    background-size: contain;
+    z-index: 2;
+    animation: bg_animation 100s linear infinite;
+}
+
+.img_11 {
+    background: url("img/parallax/11_background.png");
+    background-size: contain;
+    z-index: 1;
+    position: static;
+}
+
+@keyframes rolling {
+    100% {
+        left: -50px;
+    }
+}
+
+.obstacle{
+    z-index: 50;
+    position: absolute;
+    bottom: 210px;
+    left: 2048px;
+    animation: rolling 15s linear 1;
+}
+
+.obstacle_crate{
+    height: 55px;
+    width: 55px;
+    background: url("img/obstacles/crate.png");
+    background-size: contain;
+}
+
